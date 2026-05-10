@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio — OJEWUMI ASAPH FELIX | Cybersécurité & IA</title>
+    <meta name="description" content="Portfolio de OJEWUMI ASAPH FELIX — Étudiant en Cybersécurité & IA, en recherche de stage. ESATIC Côte d'Ivoire.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        body, html { display: block !important; visibility: visible !important; opacity: 1 !important; }
+        section, .hero, .project-card, .skill-category { display: block !important; visibility: visible !important; opacity: 1 !important; }
+    </style>
+</head>
+
+<body>
+    <!-- Scroll progress bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- ══ NAVIGATION ══════════════════════════════════════════════════════ -->
+    <nav class="navbar" x-data="{ mobileMenuOpen: false }">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">OAF.dev</span>
+            </div>
+            <ul class="nav-menu" :class="mobileMenuOpen ? 'active' : ''">
+                <li><a href="#home"     class="nav-link" @click="mobileMenuOpen = false">Accueil</a></li>
+                <li><a href="#about"    class="nav-link" @click="mobileMenuOpen = false">À propos</a></li>
+                <li><a href="#projects" class="nav-link" @click="mobileMenuOpen = false">Projets</a></li>
+                <li><a href="#skills"   class="nav-link" @click="mobileMenuOpen = false">Compétences</a></li>
+                <li><a href="#contact"  class="nav-link" @click="mobileMenuOpen = false">Contact</a></li>
+                <li>
+                    <a href="#contact" class="nav-stage-badge" @click="mobileMenuOpen = false">
+                        Disponible pour un stage
+                    </a>
+                </li>
+            </ul>
+            <button
+                class="hamburger" type="button"
+                aria-label="Ouvrir le menu"
+                :aria-expanded="mobileMenuOpen.toString()"
+                @click="mobileMenuOpen = !mobileMenuOpen"
+                :class="mobileMenuOpen ? 'active' : ''"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ══ HERO ════════════════════════════════════════════════════════════ -->
+    <section id="home" class="hero">
+        <canvas id="hero-particles"></canvas>
+        <div class="hero-content">
+
+            <span class="hero-badge fade-in">
+                <span class="hero-badge-dot"></span>
+                Disponible pour un stage · Cybersécurité &amp; IA
+            </span>
+
+            <h1 class="hero-title fade-in">
+                Bonjour, je suis <span class="highlight">OJEWUMI ASAPH FELIX</span>
+            </h1>
+
+            <p id="typing-text" class="hero-subtitle fade-in-delay"></p>
+
+            <p class="hero-description fade-in-delay">
+                Étudiant en Licence 2 Cybersécurité &amp; IA à l'ESATIC, je cherche activement un
+                <strong>stage ou une première expérience professionnelle</strong> pour mettre en pratique
+                mes compétences, apprendre auprès de professionnels et contribuer concrètement aux projets d'une entreprise.
+            </p>
+
+            <div class="hero-actions fade-in-delay-2">
+                <a href="#projects" class="cta-button">
+                    <i class="fas fa-layer-group"></i> Voir mes réalisations
+                </a>
+                <a href="#contact" class="ghost-button">
+                    <i class="fas fa-paper-plane"></i> Me proposer un stage
+                </a>
+            </div>
+
+            <div class="hero-metrics fade-in-delay-2">
+                <div class="metric-card">
+                    <strong data-count="2">0</strong>
+                    <span>projets réalisés</span>
+                </div>
+                <div class="metric-card">
+                    <strong data-count="3">0</strong>
+                    <span>domaines clés</span>
+                </div>
+                <div class="metric-card">
+                    <strong data-count="8">0</strong>
+                    <span>outils maîtrisés</span>
+                </div>
+            </div>
+
+        </div>
+        <div class="hero-background"></div>
+    </section>
+
+    <!-- ══ ABOUT ═══════════════════════════════════════════════════════════ -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">À propos de moi</h2>
+            <div class="about-content">
+                <div class="about-text">
+
+                    <span class="about-label">
+                        <i class="fas fa-user-graduate"></i> Mon parcours
+                    </span>
+
+                    <p class="fade-in">
+                        Passionné par la cybersécurité et l'intelligence artificielle, je suis étudiant
+                        en Licence 2 à l'ESATIC (Côte d'Ivoire). Je cherche à intégrer une entreprise
+                        en tant que stagiaire pour acquérir une expérience concrète, enrichir mes
+                        compétences techniques et apporter une contribution réelle aux équipes.
+                    </p>
+                    <p class="fade-in">
+                        Ma formation combine sécurité réseau, machine learning et développement logiciel.
+                        À travers mes projets personnels, j'ai développé une capacité à concevoir et
+                        déployer des solutions de bout en bout, et je suis prêt à m'investir pleinement
+                        dans les défis d'un environnement professionnel.
+                    </p>
+
+                    <div class="about-highlights fade-in">
+                        <span><i class="fas fa-shield-halved"></i> Analyse des risques</span>
+                        <span><i class="fas fa-brain"></i> Prototypes IA / ML</span>
+                        <span><i class="fas fa-code"></i> Développement web</span>
+                        <span><i class="fas fa-network-wired"></i> Sécurité réseaux</span>
+                    </div>
+
+                    <div class="stage-callout fade-in">
+                        <i class="fas fa-briefcase"></i>
+                        <p>
+                            <strong>En recherche active de stage</strong> — Disponible pour une collaboration
+                            de 1 à 6 mois en cybersécurité, développement ou IA. Motivé, curieux et prêt à apprendre.
+                        </p>
+                    </div>
+
+                </div>
+                <div class="about-image">
+                    <img src="pictures CV.png" alt="Photo de OJEWUMI ASAPH FELIX" class="profile-photo" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ PROJECTS ════════════════════════════════════════════════════════ -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projets &amp; Réalisations</h2>
+            <p class="projects-intro">
+                Ces projets illustrent ma capacité à concevoir des solutions concrètes de manière autonome.
+                Ils témoignent de mon initiative et de mon envie d'apprendre en passant à l'action.
+            </p>
+
+            <div class="projects-grid">
+
+                <!-- Project 1 : EcoCollect -->
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <span class="project-status">Prototype en ligne</span>
+                        <img src="images/project-ecocolect.png" alt="EcoCollect — Application citoyenne de gestion des déchets">
+                    </div>
+                    <div class="project-content">
+                        <h3>EcoCollect — Gestion intelligente des déchets urbains</h3>
+                        <p>
+                            Application mobile permettant aux citoyens de signaler des dépôts sauvages,
+                            de localiser les points de collecte et de suivre en temps réel l'état des
+                            infrastructures de ramassage.
+                        </p>
+                        <p>
+                            Ce projet m'a permis de mettre en œuvre la géolocalisation, la conception
+                            UX mobile et l'intégration d'un tableau de bord analytique pour les autorités.
+                        </p>
+                        <div class="project-tech">
+                            <span>Géolocalisation</span>
+                            <span>UX Mobile</span>
+                            <span>Dashboard</span>
+                            <span>Eco-responsabilité</span>
+                        </div>
+                        <div class="project-insights">
+                            <span><strong>Compétences</strong> Full-stack & cartographie</span>
+                            <span><strong>Impact</strong> Signalement citoyen</span>
+                        </div>
+                        <a href="https://ecocollect.byethost14.com/?i=1" class="project-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-arrow-up-right-from-square"></i> Voir le prototype
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 : N'ti -->
+                <div class="project-card fade-in">
+                    <div class="project-content">
+                        <span class="project-status project-status-inline">Concept mobile</span>
+                        <h3>N'ti — Apprentissage mobile de la langue Baoulé</h3>
+                        <p>
+                            Application mobile dédiée à l'apprentissage de la langue Baoulé, avec des
+                            leçons structurées, des audios de prononciation, des quiz interactifs et un
+                            dictionnaire hors ligne Baoulé–Français.
+                        </p>
+                        <p>
+                            Ce projet reflète ma volonté de concevoir des outils à impact culturel,
+                            en explorant le développement mobile multimédia et l'expérience hors ligne.
+                        </p>
+                        <div class="project-tech">
+                            <span>Flutter</span>
+                            <span>Audio</span>
+                            <span>Quiz interactif</span>
+                            <span>Hors ligne</span>
+                        </div>
+                        <div class="project-insights">
+                            <span><strong>Compétences</strong> Développement mobile</span>
+                            <span><strong>Impact</strong> Patrimoine culturel</span>
+                        </div>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-mobile-screen-button"></i> Découvrir N'ti
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ SKILLS ══════════════════════════════════════════════════════════ -->
+    <section id="skills" class="skills">
+        <canvas id="matrix-canvas"></canvas>
+        <div class="container">
+            <h2 class="section-title">Compétences</h2>
+
+            <div class="skills-visuals fade-in">
+                <div class="skill-radar-container">
+                    <canvas id="skill-radar"></canvas>
+                </div>
+            </div>
+
+            <div class="skills-container">
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-shield-halved" style="margin-right:0.5rem"></i>Cybersécurité</h3>
+                    <ul class="skill-list">
+                        <li>Tests d'intrusion (Pentest)</li>
+                        <li>Analyse de vulnérabilités</li>
+                        <li>Sécurité web &amp; réseaux</li>
+                        <li>OWASP / CTF</li>
+                    </ul>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-brain" style="margin-right:0.5rem"></i>IA &amp; Data</h3>
+                    <ul class="skill-list">
+                        <li>Machine Learning (scikit-learn)</li>
+                        <li>Deep Learning (TensorFlow)</li>
+                        <li>Analyse &amp; visualisation de données</li>
+                        <li>FastAPI (déploiement modèles)</li>
+                    </ul>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-code" style="margin-right:0.5rem"></i>Développement</h3>
+                    <ul class="skill-list">
+                        <li>Python, JavaScript, PHP</li>
+                        <li>Django, React, Laravel, Flutter</li>
+                        <li>HTML / CSS</li>
+                        <li>REST API &amp; architecture MVC</li>
+                    </ul>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-wrench" style="margin-right:0.5rem"></i>Outils &amp; DevOps</h3>
+                    <ul class="skill-list">
+                        <li>MySQL, PostgreSQL, MongoDB, Firebase</li>
+                        <li>Git / GitHub, Docker</li>
+                        <li>Figma, FlutterFlow</li>
+                        <li>Linux / Kali Linux</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ CONTACT ═════════════════════════════════════════════════════════ -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+
+                    <div class="availability-banner">
+                        Disponible dès maintenant pour un stage ou une alternance
+                    </div>
+
+                    <h3>Vous recrutez un stagiaire ?</h3>
+                    <p>
+                        Étudiant motivé, autonome et en perpétuelle progression, je suis à la recherche
+                        d'une opportunité de stage ou d'alternance en <strong>cybersécurité</strong>,
+                        <strong>développement</strong> ou <strong>intelligence artificielle</strong>.
+                    </p>
+                    <p>
+                        Collaborer avec votre équipe serait pour moi une formidable occasion de mettre
+                        mes compétences au service de projets concrets et d'apprendre des professionnels du secteur.
+                        N'hésitez pas à me contacter !
+                    </p>
+
+                    <div class="contact-links">
+                        <a href="mailto:asaphfelix03@gmail.com" class="contact-link">
+                            <span>📧</span> asaphfelix03@gmail.com
+                        </a>
+                        <a href="https://linkedin.com/in/asaph-felix-ojewumi" class="contact-link" target="_blank" rel="noopener noreferrer">
+                            <span>💼</span> LinkedIn — Asaph Félix OJEWUMI
+                        </a>
+                        <a href="https://github.com/asaphfelix" class="contact-link" target="_blank" rel="noopener noreferrer">
+                            <span>🐙</span> GitHub — asaphfelix
+                        </a>
+                        <a href="MON_CV_1.pdf" class="contact-link" target="_blank" rel="noopener noreferrer">
+                            <span>📄</span> Télécharger mon CV
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ FOOTER ══════════════════════════════════════════════════════════ -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 OJEWUMI ASAPH FELIX — Étudiant en Cybersécurité &amp; IA · ESATIC Côte d'Ivoire</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script>
+        AOS.init({ duration: 750, easing: 'ease-in-out', once: true, mirror: false });
+    </script>
+</body>
+
+</html>
